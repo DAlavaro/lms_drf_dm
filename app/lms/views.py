@@ -1,3 +1,4 @@
+# app/lms/views.py
 from rest_framework import viewsets, generics
 
 from app.lms.models import Course, Lesson
