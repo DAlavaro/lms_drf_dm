@@ -1,5 +1,6 @@
 # app/lms/models
 from django.db import models
+from config import settings
 
 
 class Course(models.Model):
@@ -20,6 +21,7 @@ class Lesson(models.Model):
     description = models.TextField(verbose_name='Описание урока', null=True, blank=True)
     image = models.ImageField(upload_to='lessons/', blank=True, null=True, verbose_name='Изображение урока')
     video = models.FileField(upload_to='lessons/', blank=True, null=True, verbose_name='Видео урока')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='lessons', verbose_name='Курс')
 
     def __str__(self):
         return self.name

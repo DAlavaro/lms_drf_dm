@@ -7,6 +7,8 @@ from app.lms.models import Course, Lesson
 
 
 class CourseSerializer(serializers.ModelSerializer):
+    lessons_count = serializers.IntegerField(source='lessons.count', read_only=True)
+
     class Meta:
         model = Course
         fields = '__all__'
